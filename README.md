@@ -18,11 +18,34 @@ bower install --save nhs-number-validator
 
 ## Usage
 
+##### Node/Browserify
+
+For environments supporting `require`/`exports`:
+
 ```javascript
 var validator = require('nhs-number-validator');
 
 validator.validate('2983396339') // => true
 validator.validate('test') // => false
+```
+
+##### Browsers
+
+Any environment which exposes `window` will have the `nhsNumberValidator` variable attached when `index.js` is loaded, e.g.:
+
+```html
+<script src="./bower_components/nhs-number-validator/index.js"></script>
+<script>
+  var validator = window.nhsNumberValidator
+  validator.validate('2983396339') // => true
+  validator.validate('test') // => false
+
+  // or just use it directly if you prefer:
+  window.nhsNumberValidator.validate('2983396339') // => true
+
+  // you don't even need `window`:
+  nhsNumberValidator.validate('2983396339') // => true
+</script>
 ```
 
 
@@ -62,6 +85,7 @@ jq ".version = \"${VERSION_NUMBER}\"" package.json > package.json.new && mv pack
 git add package.json
 git commit -m "Update package version number to $VERSION_NUMBER"
 
+# The following command requires user input
 git flow release finish $VERSION_NUMBER
 
 git checkout master && git push
@@ -69,7 +93,7 @@ git checkout develop && git push
 git push --tags
 
 git checkout master
-hub release create -a labking_$VERSION_NUMBER.zip -m "$VERSION_NUMBER" $VERSION_NUMBER
+hub release create -m "$VERSION_NUMBER" $VERSION_NUMBER
 npm publish
 # Bower is published automatically using Git tags, so don't worry about that
 git checkout develop
