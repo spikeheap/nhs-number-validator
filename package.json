@@ -1,6 +1,6 @@
 {
   "name": "nhs-number-validator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Validate NHS numbers in various guises",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "lint": "./node_modules/.bin/jshint *.js",
     "cli": "./cli.js"
   },
-  "bin" : {
-    "nhs-number-validator" : "./cli.js"
+  "bin": {
+    "nhs-number-validator": "./cli.js"
   },
   "repository": {
     "type": "git",
