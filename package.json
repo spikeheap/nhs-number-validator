@@ -6,7 +6,11 @@
   "scripts": {
     "test": "./node_modules/.bin/jasmine-node .",
     "test-watch": "./node_modules/.bin/jasmine-node . --autotest",
-    "lint": "./node_modules/.bin/jshint *.js"
+    "lint": "./node_modules/.bin/jshint *.js",
+    "cli": "./cli.js"
+  },
+  "bin" : {
+    "nhs-number-validator" : "./cli.js"
   },
   "repository": {
     "type": "git",
