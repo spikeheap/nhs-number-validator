@@ -1,0 +1,27 @@
+{
+  "name": "nhs-number-validator",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/spikeheap/nhs-number-validator",
+  "authors": [
+    "Ryan Brooks <ryan@ryanbrooks.co.uk>"
+  ],
+  "description": "A simple NHS number validator",
+  "moduleType": [
+    "node",
+    "globals"
+  ],
+  "keywords": [
+    "nhs",
+    "validator",
+    "validation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

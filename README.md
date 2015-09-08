@@ -1,3 +1,20 @@
+# NHS number validator (JS)
+
+A simple NHS number validator, following the process described in the [NHS Data Dictionary](http://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp?shownav=0?query=%22nhs+number%22&rank=100&shownav=1).
+
+## Installation
+
+##### NPM
+
+```
+npm install --save nhs-number-validator
+```
+
+##### Bower
+
+```
+bower install --save nhs-number-validator
+```
 
 #### Running and testing
 
