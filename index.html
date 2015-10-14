@@ -112,7 +112,12 @@ validator.validate(<span class="pl-s"><span class="pl-pds">'</span>test<span cla
 <h3>
 <a id="try-it-out" class="anchor" href="#try-it-out" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try it out</h3>
 
-<p>TODO</p>
+<form id="validate-nhs-number" action="#">
+  <input id="input-nhs-number" type="text" value="Enter a sample NHS Number">
+  <input type="submit" value="Validate">
+</form>
+
+<div id="validation-result"></div>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -130,7 +135,21 @@ validator.validate(<span class="pl-s"><span class="pl-pds">'</span>test<span cla
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
+    
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="bower_components/nhs-number-validator/index.js"></script>
+    <script>
+      $(document).ready(function(){
+        $( "#validate-nhs-number" ).submit(function( event ) {
+          var input = $( "input-nhs-number" ).val();
+          var validationResult = nhsNumberValidator.validate(input);
+
+          $( "#validation-result" ).text(validationResult ? 'Valid' : 'Invalid');
+          event.preventDefault();
+        });
+      });
+    </script>
+
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
