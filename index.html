@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>JavaScript NHS Number Validator by spikeheap</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">JavaScript NHS Number Validator</h1>
+        <p class="header">A simple JS NHS number validator for Node and browsers</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/spikeheap/nhs-number-validator/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/spikeheap/nhs-number-validator/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/spikeheap/nhs-number-validator">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/spikeheap">spikeheap</a></p>
+
+
+      </header>
+      <section>
+        <h3>
+<a id="nhs-number-validator" class="anchor" href="#nhs-number-validator" aria-hidden="true"><span class="octicon octicon-link"></span></a>nhs-number-validator</h3>
+
+<p><a href="https://travis-ci.org/spikeheap/nhs-number-validator"><img src="https://travis-ci.org/spikeheap/nhs-number-validator.svg?branch=develop" alt="Build Status"></a></p>
+
+<p>A simple NHS number validator, following the process described in the <a href="http://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp?shownav=0?query=%22nhs+number%22&amp;rank=100&amp;shownav=1">NHS Data Dictionary</a>.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h5>
+<a id="npm" class="anchor" href="#npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM</h5>
+
+<div class="highlight highlight-source-shell"><pre>npm install --save nhs-number-validator</pre></div>
+
+<h5>
+<a id="bower" class="anchor" href="#bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bower</h5>
+
+<div class="highlight highlight-source-shell"><pre>bower install --save nhs-number-validator</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h5>
+<a id="command-line--terminal" class="anchor" href="#command-line--terminal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line / terminal</h5>
+
+<p>To run the interactive validation tool, install the NPM module globally:</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install -g nhs-number-validator</pre></div>
+
+<p>and <code>nhs-number-validator</code> will be added to your path:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ nhs-number-validator
+Enter NHS numbers to validate, Ctrl-D to <span class="pl-c1">exit</span>
+<span class="pl-k">&gt;</span> 123
+<span class="pl-k">*</span>INVALID
+<span class="pl-k">&gt;</span> 2983396339
+ VALID</pre></div>
+
+<p>You can also install the tool for a single project, and just reference the executable in your project:</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install nhs-number-validator
+./node_modules/.bin/nhs-number-validator
+<span class="pl-c"># or</span>
+<span class="pl-s"><span class="pl-pds">`</span>npm bin<span class="pl-pds">`</span></span>/nhs-number-validator</pre></div>
+
+<h5>
+<a id="nodebrowserify" class="anchor" href="#nodebrowserify" aria-hidden="true"><span class="octicon octicon-link"></span></a>Node/Browserify</h5>
+
+<p>For environments supporting <code>require</code>/<code>exports</code>:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> validator <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>nhs-number-validator<span class="pl-pds">'</span></span>);
+
+validator.validate(<span class="pl-s"><span class="pl-pds">'</span>2983396339<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; true</span>
+validator.validate(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; false</span></pre></div>
+
+<h5>
+<a id="browsers" class="anchor" href="#browsers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browsers</h5>
+
+<p>Any environment which exposes <code>window</code> will have the <code>nhsNumberValidator</code> variable attached when <code>index.js</code> is loaded, e.g.:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./bower_components/nhs-number-validator/index.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">  <span class="pl-k">var</span> validator <span class="pl-k">=</span> <span class="pl-c1">window</span>.nhsNumberValidator</span>
+<span class="pl-s1">  validator.validate(<span class="pl-s"><span class="pl-pds">'</span>2983396339<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; true</span></span>
+<span class="pl-s1">  validator.validate(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; false</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">  <span class="pl-c">// or just use it directly if you prefer:</span></span>
+<span class="pl-s1">  <span class="pl-c1">window</span>.nhsNumberValidator.validate(<span class="pl-s"><span class="pl-pds">'</span>2983396339<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; true</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">  <span class="pl-c">// you don't even need `window`:</span></span>
+<span class="pl-s1">  nhsNumberValidator.validate(<span class="pl-s"><span class="pl-pds">'</span>2983396339<span class="pl-pds">'</span></span>) <span class="pl-c">// =&gt; true</span></span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h3>
+<a id="validating-nhs-numbers" class="anchor" href="#validating-nhs-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validating NHS Numbers</h3>
+
+<p>TODO</p>
+
+<h3>
+<a id="try-it-out" class="anchor" href="#try-it-out" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try it out</h3>
+
+<p>TODO</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<ul>
+<li><a href="https://github.com/spikeheap" class="user-mention">@spikeheap</a></li>
+</ul>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>If you have any problems or suggestions, please <a href="https://github.com/spikeheap/nhs-number-validator/issues">create an issue</a>, and we'll give you a hand. <a href="https://github.com/spikeheap/nhs-number-validator/pulls">Pull Requests</a> are very welcome too!</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43110335-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
