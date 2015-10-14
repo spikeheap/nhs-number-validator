@@ -1,0 +1,22 @@
+{
+  "name": "nhs-number-validator-website",
+  "version": "1.1.0",
+  "homepage": "https://github.com/spikeheap/nhs-number-validator",
+  "authors": [
+    "Ryan Brooks <ryanbrooksis@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nhs-number-validator": "~1.1.0"
+  }
+}
