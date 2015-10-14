@@ -141,7 +141,7 @@ validator.validate(<span class="pl-s"><span class="pl-pds">'</span>test<span cla
     <script>
       $(document).ready(function(){
         $( "#validate-nhs-number" ).submit(function( event ) {
-          var input = $( "input-nhs-number" ).val();
+          var input = $( "#input-nhs-number" ).val();
           var validationResult = nhsNumberValidator.validate(input);
 
           $( "#validation-result" ).text(validationResult ? 'Valid' : 'Invalid');
