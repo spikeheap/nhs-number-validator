@@ -105,6 +105,7 @@ git flow release start $VERSION_NUMBER
 
 # Bump the version in package.json now!
 jq ".version = \"${VERSION_NUMBER}\"" package.json > package.json.new && mv package.json.new package.json
+jq ".version = \"${VERSION_NUMBER}\"" bower.json > bower.json.new && mv bower.json.new bower.json
 git add package.json
 git commit -m "Update package version number to $VERSION_NUMBER"
 
