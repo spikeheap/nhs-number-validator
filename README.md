@@ -91,18 +91,12 @@ Some useful commands:
 
 NPM is overly verbose [at the moment](https://github.com/npm/npm/issues/5452), hence the additional `--silent` to suppress the unnecessary noise.
 
-You can run the tests on every change with:
-
-```bash
-karma start
-```
-
 ### Creating a release
 
 Making a release is pretty straightforward:
 
 ```bash
-VERSION_NUMBER=1.0.0
+VERSION_NUMBER=1.1.0
 
 git checkout master && git pull
 git checkout develop && git pull
@@ -111,6 +105,7 @@ git flow release start $VERSION_NUMBER
 
 # Bump the version in package.json now!
 jq ".version = \"${VERSION_NUMBER}\"" package.json > package.json.new && mv package.json.new package.json
+jq ".version = \"${VERSION_NUMBER}\"" bower.json > bower.json.new && mv bower.json.new bower.json
 git add package.json
 git commit -m "Update package version number to $VERSION_NUMBER"
 
