@@ -95,30 +95,6 @@ NPM is overly verbose [at the moment](https://github.com/npm/npm/issues/5452), h
 
 Making a release is pretty straightforward:
 
-```bash
-VERSION_NUMBER=1.1.0
+1. Update the version in `package.json` in the `main` branch.
+2. Tag the commit with the same version number (e.g. `git tag -l "1.1.1" && git push --tags`), which will trigger GitHub Actions to publish to NPM.
 
-git checkout master && git pull
-git checkout develop && git pull
-
-git flow release start $VERSION_NUMBER
-
-# Bump the version in package.json now!
-jq ".version = \"${VERSION_NUMBER}\"" package.json > package.json.new && mv package.json.new package.json
-jq ".version = \"${VERSION_NUMBER}\"" bower.json > bower.json.new && mv bower.json.new bower.json
-git add package.json
-git commit -m "Update package version number to $VERSION_NUMBER"
-
-# The following command requires user input
-git flow release finish $VERSION_NUMBER
-
-git checkout master && git push
-git checkout develop && git push
-git push --tags
-
-git checkout master
-hub release create -m "$VERSION_NUMBER" $VERSION_NUMBER
-npm publish
-# Bower is published automatically using Git tags, so don't worry about that
-git checkout develop
-```
