@@ -96,5 +96,4 @@ NPM is overly verbose [at the moment](https://github.com/npm/npm/issues/5452), h
 Making a release is pretty straightforward:
 
 1. Update the version in `package.json` in the `main` branch.
-2. Tag the commit with the same version number (e.g. `git tag -l "1.1.1" && git push --tags`), which will trigger GitHub Actions to publish to NPM.
-
+2. Create a release in GitHub and set the tag to match the version in `package.json` (following [the GitHub docs](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)).
